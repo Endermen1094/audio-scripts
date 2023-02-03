@@ -225,7 +225,7 @@ def zen2_audio(username):
     print_status("After rebooting you will need to set speakers as the output device in sound settings.")
 
 
-def install_package(arch_package: str = "", deb_package: str = "", rpm_package: str = "", portage_package: str = "" suse_package: str = "",
+def install_package(arch_package: str = "", deb_package: str = "", rpm_package: str = "",  suse_package: str = "",
                     void_package: str = "", reinstall: bool = False):
     if Path("/usr/bin/pacman").exists():
         if reinstall:
