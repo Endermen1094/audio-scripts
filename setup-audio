@@ -11,8 +11,7 @@ def process_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--verbose", action="store_true", dest="verbose", default=False,
                         help="Print more output")
-    parser.add_argument("-b", "--board_name", dest="board_name", type=str, nargs=1, default=[""],
-                        help="Override board name. FOR TESTING ONLY")
+    parser.add_argument("-b", help="Override board name. FOR TESTING ONLY")
     return parser.parse_args()
 
 
@@ -226,7 +225,7 @@ def zen2_audio(username):
     print_status("After rebooting you will need to set speakers as the output device in sound settings.")
 
 
-def install_package(arch_package: str = "", deb_package: str = "", rpm_package: str = "", suse_package: str = "",
+def install_package(arch_package: str = "", deb_package: str = "", rpm_package: str = "", portage_package: str = "" suse_package: str = "",
                     void_package: str = "", reinstall: bool = False):
     if Path("/usr/bin/pacman").exists():
         if reinstall:
@@ -253,8 +252,12 @@ def install_package(arch_package: str = "", deb_package: str = "", rpm_package: 
             bash(f"dnf reinstall -y {rpm_package}")
         else:
             bash(f"dnf install -y {rpm_package}")
+    
+   
     else:
-        print_error(f"Unknown package manager! Please install {deb_package} using your package manager.")
+        print_error(f"Unknown package manager! Please install {deb_package} using your package manager. if you have it installed enter "it is installed ".")
+        input=prompt
+        if prompt!="it is installed"
         exit(1)
 
 
